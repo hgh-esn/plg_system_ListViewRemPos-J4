@@ -58,8 +58,6 @@ class plgSystemListViewRemPos extends CMSPlugin    // neu seit J6
 		var $com_adv;
 		var $com_std_found;
 		var $com_std;
-		
-		
     /**
      * Constructor
      *
@@ -457,4 +455,5 @@ class plgSystemListViewRemPos extends CMSPlugin    // neu seit J6
 		} // End function checkStdParms    
 } // End class plgSystemListViewRemPos
 ?>
+
 
