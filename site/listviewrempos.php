@@ -42,12 +42,12 @@
  * 
  **/
 defined( '_JEXEC' ) || die( 'Restricted access' );
-
+// neu seit J6
 use Joomla\CMS\Plugin\CMSPlugin;     // https://forum.joomla.de/thread/12094-woher-kennt-meine-eigene-php-datei-die-datei-mit-der-elternklasse/?postID=74539#post74539
 use Joomla\CMS\Factory;
-
-// jimport( 'joomla.plugin.plugin' );
-// class plgSystemListViewRemPos extends JPlugin
+//
+// J6   jimport( 'joomla.plugin.plugin' );
+// J6   class plgSystemListViewRemPos extends JPlugin
 // 
 class plgSystemListViewRemPos extends CMSPlugin    // neu seit J6
 {
@@ -457,3 +457,4 @@ class plgSystemListViewRemPos extends CMSPlugin    // neu seit J6
 		} // End function checkStdParms    
 } // End class plgSystemListViewRemPos
 ?>
+
