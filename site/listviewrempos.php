@@ -7,9 +7,15 @@
  * @author     Hans-Guenter Heiserholt {@link http://www.moba-hgh.de}
  * @author     Created on 18-Sep-2014
  * @license    GNU/GPL Public License version 2 or later
- * @version    1.2.0
+ * @version    1.3.0
 
  *
+ * 1.3.0 + Changing for J5/6
+ *       + use Joomla\CMS\Plugin\CMSPlugin
+ *       + use Joomla\CMS\Factory
+ *       + changed JFactory -> Factory
+ *       - jimport( 'joomla.plugin.plugin' )
+ *       + changed class jplugin -> CMSPlugin
  * 1.2.0 + Changing for J4
  * 1.1.1 + code restructering
  * 1.1.0 + changed all buttons with listitemtask ....
@@ -36,8 +42,14 @@
  * 
  **/
 defined( '_JEXEC' ) || die( 'Restricted access' );
-jimport( 'joomla.plugin.plugin' );
-class plgSystemListViewRemPos extends JPlugin
+
+use Joomla\CMS\Plugin\CMSPlugin;     // https://forum.joomla.de/thread/12094-woher-kennt-meine-eigene-php-datei-die-datei-mit-der-elternklasse/?postID=74539#post74539
+use Joomla\CMS\Factory;
+
+// jimport( 'joomla.plugin.plugin' );
+// class plgSystemListViewRemPos extends JPlugin
+// 
+class plgSystemListViewRemPos extends CMSPlugin    // neu seit J6
 {
     /**
      * Define some variables for later global use
@@ -64,7 +76,7 @@ class plgSystemListViewRemPos extends JPlugin
 			/* ----------------------------------
 			 * load the default language file
 			 * ---------------------------------- */  
-			$language = JFactory::getLanguage();
+			$language = Factory::getLanguage();
 			$language->load('plg_system_listviewrempos', JPATH_ADMINISTRATOR, 'en-GB', true);
 			$language->load('plg_system_listviewrempos', JPATH_ADMINISTRATOR,    null, true);
 			/* ----------------------------------
@@ -75,7 +87,7 @@ class plgSystemListViewRemPos extends JPlugin
 			/* ----------------------------------
 			 * Get a handle to the Joomla! application object
 			 * ---------------------------------- */  
-			$app = JFactory::getApplication();
+			$app = Factory::getApplication();
 			
 			if ( $com_adv_found !== false || $com_std_found !== false ) 
 			{
@@ -87,7 +99,7 @@ class plgSystemListViewRemPos extends JPlugin
 				/* ----------------------------------
 				 * get the document-objekt
 				 * ---------------------------------- */
-				$doc = & JFactory::getDocument();
+				$doc = & Factory::getDocument();
 				/* ----------------------------------
 				 * put in js-script to load js-code in html
 				 * ---------------------------------- */
@@ -124,7 +136,7 @@ class plgSystemListViewRemPos extends JPlugin
 				 * get the rendered html
 				 * ---------------------------------- */
 // J3				$html = JResponse::getbody();
-					$html = JFactory::getApplication()->getBody();
+					$html = Factory::getApplication()->getBody();
 
 				/* ----------------------------------
 				 * extract the body-code ... all between <body> .... </body>
@@ -181,7 +193,7 @@ class plgSystemListViewRemPos extends JPlugin
 				 * put back the changed html
 				 * ---------------------------------- */
 // J3				JResponse::setBody($html);
-				$html = JFactory::getApplication()->setBody($html);
+				$html = Factory::getApplication()->setBody($html);
 
 			}
 		} // End  function onAfterRender
