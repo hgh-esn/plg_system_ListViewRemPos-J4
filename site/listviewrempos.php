@@ -455,3 +455,6 @@ class plgSystemListViewRemPos extends CMSPlugin    // neu seit J6
 		} // End function checkStdParms    
 } // End class plgSystemListViewRemPos
 ?>
+
+
+
